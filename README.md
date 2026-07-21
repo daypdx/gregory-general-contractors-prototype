@@ -4,7 +4,7 @@ A polished, mobile-first website prototype for Gregory General Contractors, Inc.
 
 ## Prototype status
 
-This repository is a shareable source-code preview. It is **not a published company website** and is not connected to a production domain.
+This repository is a shareable prototype. Its GitHub Pages link is a free public review environment, **not an official company website**, and it is not connected to a company domain.
 
 - The estimate form is deliberately disabled and sends no information.
 - Photo uploads are disabled.
@@ -64,4 +64,10 @@ The social preview image is stored at `public/og.png`.
 
 ## Publication boundary
 
-Publishing, deployment, domain connection, live form delivery and access changes are intentionally outside this repository’s current state. Complete the owner, licensing, photography, privacy, security and legal review checklist before any public launch.
+An official launch, company-domain connection, live form delivery and access changes remain outside this prototype. Complete the owner, licensing, photography, privacy, security and legal review checklist before any official public launch.
+
+## Shareable prototype preview
+
+GitHub Pages publishes a static, clearly labeled prototype from this repository. The workflow does not connect a company domain, activate forms or create an official launch.
+
+Preview URL: `https://daypdx.github.io/gregory-general-contractors-prototype/`

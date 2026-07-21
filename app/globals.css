@@ -47,6 +47,7 @@ h3 { font-size: clamp(1.35rem, 3vw, 2rem); }
 :focus-visible { outline: 3px solid #ec8b5d; outline-offset: 4px; }
 
 .site-header { position: relative; z-index: 20; border-bottom: 1px solid rgba(23,50,77,.15); background: rgba(245,242,236,.97); }
+.prototype-banner { padding: 8px 16px; background: var(--rust-dark); color: var(--white); font-size: .7rem; font-weight: 800; letter-spacing: .055em; line-height: 1.4; text-align: center; text-transform: uppercase; }
 .header-inner { min-height: 86px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
 .wordmark { display: inline-flex; flex-direction: column; color: var(--navy); font-family: Georgia, serif; font-size: 1.8rem; font-weight: 800; line-height: .85; text-decoration: none; }
 .wordmark small { margin-top: 7px; color: var(--rust-dark); font-family: var(--font-geist-sans), sans-serif; font-size: .52rem; letter-spacing: .18em; text-transform: uppercase; }

@@ -101,7 +101,9 @@ export function Wordmark() {
 
 export function SiteHeader() {
   return (
-    <header className="site-header">
+    <>
+      <div className="prototype-banner" role="note">Public prototype preview · Not an official company website · Forms and uploads are disabled</div>
+      <header className="site-header">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="shell header-inner">
         <div>
@@ -126,7 +128,8 @@ export function SiteHeader() {
           </nav>
         </details>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
 
@@ -214,10 +217,11 @@ export function ConceptRender({
   height?: number;
   hero?: boolean;
 }) {
+  const assetBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return (
     <figure className={`concept-render${hero ? " concept-render-hero" : ""}`}>
       <img
-        src={src}
+        src={`${assetBasePath}${src}`}
         alt={alt}
         width={width}
         height={height}
