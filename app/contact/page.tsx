@@ -1,0 +1,13 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { OwnerTag, PageFrame, PageHero } from "../components";
+
+export const metadata: Metadata = { title: "Contact", description: "Draft contact information for Gregory General Contractors in Wilsonville, Oregon. Phone 503-490-8450. Oregon CCB #161158." };
+
+export default function ContactPage() {
+  return <PageFrame>
+    <PageHero eyebrow="Contact" title="Tell us what you would like to change or repair."><p>Gregory General Contractors, Inc.<br />Based in Wilsonville, Oregon<br />Phone: <a href="tel:+15034908450">503-490-8450</a><br />Oregon CCB #161158</p><div className="button-row"><a className="button" href="tel:+15034908450">Call 503-490-8450</a><Link className="button button-outline" style={{color: "white"}} href="/estimate">Request an Estimate</Link></div></PageHero>
+    <section className="section"><div className="shell split-grid"><div><p className="eyebrow">Public contact details</p><h2>Confirmed draft information.</h2><dl className="project-meta"><div><dt>Business name</dt><dd>Gregory General Contractors, Inc.</dd></div><div><dt>Location wording</dt><dd>Based in Wilsonville, Oregon</dd></div><div><dt>Official-record phone</dt><dd><a href="tel:+15034908450">503-490-8450</a></dd></div><div><dt>Oregon CCB</dt><dd>161158</dd></div></dl><a className="text-link" href="https://search.ccb.state.or.us/search/" target="_blank" rel="noreferrer">Verify the CCB record (opens new tab)</a></div><div><p className="eyebrow">Owner inputs required</p><h2>Contact fields still withheld.</h2><ul className="checklist"><li>[OWNER: Supply public business email]</li><li>[OWNER: Confirm phone-answering hours]</li><li>[OWNER: Confirm Oregon service area]</li><li>[OWNER: Confirm whether the full address should be public]</li><li>[OWNER: Confirm whether customers may visit by appointment]</li></ul></div></div></section>
+    <section className="section section-alt"><div className="shell narrow"><div className="notice warning"><strong>No public-office claim</strong><p>The official business-record address may be a residential or mailing address. It is not described as a showroom, walk-in office or customer destination, and no exact map pin is displayed.</p></div><OwnerTag>Use 503-490-8450 for the draft; do not publish conflicting directory phone numbers.</OwnerTag></div></section>
+  </PageFrame>;
+}
