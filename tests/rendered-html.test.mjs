@@ -23,7 +23,7 @@ test("server-renders the finished homepage with conservative claims", async () =
   assert.match(html, /Gregory General Contractors/);
   assert.match(html, /Built right\. Repaired with care\./);
   assert.match(html, /Oregon CCB #161158/);
-  assert.match(html, /Illustrative 3D render/);
+  assert.match(html, /AI-generated illustrative image/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|100% satisfaction|500\+ projects/i);
 });
 
@@ -54,6 +54,12 @@ test("required original render assets are included", async () => {
     "../public/concepts/kitchen-remodel.webp",
     "../public/concepts/addition-structural.webp",
     "../public/concepts/deck-concrete.webp",
+    "../public/concepts/bathroom-remodel-v2.webp",
+    "../public/concepts/storm-restoration-v2.webp",
+    "../public/concepts/foundation-repair-v2.webp",
+    "../public/concepts/structural-beam-v2.webp",
+    "../public/concepts/jobsite-planning-v2.webp",
+    "../public/concepts/homeowner-consultation-v2.webp",
     "../public/og.png",
   ];
   await Promise.all(assets.map((asset) => access(new URL(asset, import.meta.url))));

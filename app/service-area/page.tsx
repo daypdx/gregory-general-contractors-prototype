@@ -7,7 +7,7 @@ const questions = ["Primary cities", "Counties served", "Maximum travel distance
 
 export default function ServiceAreaPage() {
   return <PageFrame>
-    <PageHero eyebrow="Service area" title="Based in Wilsonville. Oregon communities to be confirmed."><p>Based in Wilsonville and serving owner-confirmed communities in Oregon.</p><OwnerTag>Do not publish a city list until the owner confirms it.</OwnerTag></PageHero>
+    <PageHero eyebrow="Service area" title="Based in Wilsonville. Oregon communities to be confirmed." image={{src: "/concepts/pnw-home-renovation.webp", alt: "Illustrative 3D render of a Pacific Northwest residential renovation", uploadLabel: "Authentic Gregory residential project photograph from the confirmed Oregon service area"}}><p>Based in Wilsonville and serving owner-confirmed communities in Oregon.</p><OwnerTag>Do not publish a city list until the owner confirms it.</OwnerTag></PageHero>
     <section className="section"><div className="shell split-grid"><div className="map-placeholder" role="img" aria-label="Editable Oregon service-area map placeholder"><div><strong>Editable service-area map</strong><p>[OWNER: Confirm cities, counties and maximum travel distance before adding boundaries.]</p></div></div><div><p className="eyebrow">Owner review</p><h2>Define the actual working area.</h2><ul className="checklist">{questions.map((question) => <li key={question}>Confirm: {question}</li>)}</ul><div className="notice warning"><p>Washington communities are not listed. The company’s former Washington registration expired in 2022; no Washington licensing or service coverage is advertised without current verification.</p></div></div></div></section>
     <EstimateCTA />
   </PageFrame>;

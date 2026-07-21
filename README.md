@@ -10,8 +10,8 @@ This repository is a shareable prototype. Its GitHub Pages link is a free public
 - Photo uploads are disabled.
 - Service categories, service area, owner biography and process details require owner approval.
 - Oregon CCB status, bond and insurance information must be rechecked before publication.
-- Project cards remain authentic-photo and owner-information placeholders.
-- The architectural images are clearly disclosed illustrative 3D renders, not Gregory General Contractors project photography.
+- Project cards include polished illustrative concepts while authentic project details and owner-supplied photography remain pending.
+- All generated imagery is clearly disclosed as illustrative, not Gregory General Contractors project photography.
 
 ## Local preview
 
@@ -51,7 +51,7 @@ npm test
 
 ## Visual assets
 
-The site includes four original AI-generated 3D architectural renders under `public/concepts/`. Each is visibly labeled as an illustrative render and should be replaced with authentic, owner-approved project photography before a public launch.
+The site includes ten original AI-generated architectural and planning visuals under `public/concepts/`. They cover the homepage, every service category, the full project grid, key interior-page heroes, the company story and the estimate journey. Each is visibly labeled as illustrative and should be replaced with authentic, owner-approved project photography before an official launch.
 
 The social preview image is stored at `public/og.png`.
 

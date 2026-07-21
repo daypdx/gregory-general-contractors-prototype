@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ConceptRender, EstimateCTA, OwnerTag, PageFrame, PhotoPlaceholder, SectionHeading, VerificationStrip, projectPlaceholders, services } from "./components";
+import { ConceptRender, EstimateCTA, OwnerTag, PageFrame, SectionHeading, VerificationStrip, projectPlaceholders, services } from "./components";
 
 export const metadata: Metadata = {
   title: { absolute: "Gregory General Contractors | Wilsonville, Oregon Residential Contractor" },
@@ -42,9 +42,9 @@ export default function Home() {
 
       <section className="section section-alt">
         <div className="shell">
-          <SectionHeading eyebrow="Portfolio draft" title="Project proof belongs here." copy="These neutral cards are structured for authentic, permissioned project details. No customer names, locations, prices or outcomes have been invented." />
+          <SectionHeading eyebrow="Portfolio draft" title="Project proof belongs here." copy="Illustrative concepts now show the intended portfolio experience while authentic, permissioned Gregory project photography is gathered. No customer names, locations, prices or outcomes have been invented." />
           <div className="project-grid">
-            {projectPlaceholders.slice(0, 3).map(([title, category, upload]) => <article className="project-card" key={title}><PhotoPlaceholder label={upload} /><div className="card-body"><OwnerTag>Project details pending</OwnerTag><p className="kicker">{category}</p><h2>{title}</h2><Link className="text-link" href="/projects">View project requirements</Link></div></article>)}
+            {projectPlaceholders.slice(0, 3).map(([title, category, upload, image, alt]) => <article className="project-card" key={title}><ConceptRender src={image} alt={alt} uploadLabel={upload} /><div className="card-body"><OwnerTag>Project details pending</OwnerTag><p className="kicker">{category}</p><h2>{title}</h2><Link className="text-link" href="/projects">View project requirements</Link></div></article>)}
           </div>
           <div className="button-row" style={{marginTop: 30}}><Link className="button button-outline" href="/projects">Explore Draft Project Portfolio</Link></div>
         </div>
@@ -53,7 +53,7 @@ export default function Home() {
       <section className="section">
         <div className="shell split-grid">
           <div><SectionHeading eyebrow="About Gregory General Contractors" title="Established records. Plainspoken facts." /><p>Gregory General Contractors, Inc. is a Wilsonville-based residential general contractor. The company was registered in Oregon in 2003 and has held Oregon CCB licensing since 2004. Its documented project history includes residential remodeling, additions, structural repairs and restoration work.</p><OwnerTag>Owner biography and company story pending owner approval.</OwnerTag><p><Link className="text-link" href="/about">Read the draft company profile</Link></p></div>
-          <PhotoPlaceholder label="Professional portrait of Juan Ramirez Estrada at a jobsite" ratio="portrait" />
+          <ConceptRender src="/concepts/jobsite-planning-v2.webp" alt="AI-generated illustrative image of two residential construction professionals reviewing plans at a framed addition" uploadLabel="Professional owner or crew photograph at an active Gregory jobsite" />
         </div>
       </section>
 

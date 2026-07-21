@@ -7,7 +7,7 @@ const questions = ["What types of projects do you accept?", "What areas do you s
 
 export default function FAQPage() {
   return <PageFrame>
-    <PageHero eyebrow="Frequently asked questions" title="Good questions. Owner-approved answers still needed."><p>No answers have been invented. Each item below remains visibly marked for owner response before publication.</p><OwnerTag>Owner response required for every answer</OwnerTag></PageHero>
+    <PageHero eyebrow="Frequently asked questions" title="Good questions. Owner-approved answers still needed." image={{src: "/concepts/homeowner-consultation-v2.webp", alt: "AI-generated illustrative image of homeowners discussing a renovation with a contractor", uploadLabel: "Authentic Gregory customer consultation photograph with permission"}}><p>No answers have been invented. Each item below remains visibly marked for owner response before publication.</p><OwnerTag>Owner response required for every answer</OwnerTag></PageHero>
     <section className="section"><div className="shell narrow faq-list">{questions.map((question) => <details key={question}><summary>{question}</summary><div className="faq-answer"><OwnerTag>Owner response required</OwnerTag><p>Supply a clear, factual answer and identify any project-specific exceptions before this item is published.</p></div></details>)}</div></section>
     <EstimateCTA />
   </PageFrame>;
