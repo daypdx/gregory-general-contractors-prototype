@@ -27,8 +27,8 @@ export const services = [
     description: "Functional updates to kitchens, bathrooms and other frequently used spaces.",
     examples: ["Bathroom remodeling", "Bathroom additions", "Kitchen remodeling", "Interior reconfiguration"],
     prepare: "Identify functional problems, must-have features, existing damage and finish preferences.",
-    conceptImage: "/concepts/kitchen-remodel.webp",
-    conceptAlt: "Illustrative 3D render of a completed kitchen remodeling concept",
+    conceptImage: "/concepts/bathroom-remodel-v2.webp",
+    conceptAlt: "AI-generated illustrative image of a completed Pacific Northwest bathroom remodel",
   },
   {
     slug: "structural-repairs",
@@ -37,8 +37,8 @@ export const services = [
       "Selected structural alterations and repairs coordinated around the needs of the existing home.",
     examples: ["Bearing-wall changes", "Beam installation", "Framing repair", "Damage reconstruction"],
     prepare: "Share inspection reports, drawings, visible symptoms and prior repair information when available.",
-    conceptImage: "/concepts/addition-structural.webp",
-    conceptAlt: "Illustrative 3D render showing residential framing and a structural opening",
+    conceptImage: "/concepts/structural-beam-v2.webp",
+    conceptAlt: "AI-generated illustrative image of an engineered beam installed during a residential structural alteration",
   },
   {
     slug: "storm-restoration",
@@ -47,8 +47,8 @@ export const services = [
       "Repair and reconstruction following tree strikes, storm damage and other significant property events.",
     examples: ["Tree-strike repair", "Storm-damage reconstruction", "Exterior damage repair"],
     prepare: "Document existing damage safely and bring any reports or claim information you choose to share.",
-    conceptImage: "/concepts/addition-structural.webp",
-    conceptAlt: "Illustrative 3D render of organized residential reconstruction framing",
+    conceptImage: "/concepts/storm-restoration-v2.webp",
+    conceptAlt: "AI-generated illustrative image of an organized residential storm-damage restoration",
   },
   {
     slug: "deck-exterior",
@@ -66,19 +66,25 @@ export const services = [
       "Selected concrete, slab and foundation work based on the condition and requirements of the property.",
     examples: ["Concrete repair", "Slab repair", "Selected foundation repairs"],
     prepare: "Bring any inspection or engineering documents and note visible movement, cracks or water concerns.",
-    conceptImage: "/concepts/deck-concrete.webp",
-    conceptAlt: "Illustrative 3D render of a deck stair meeting a concrete foundation and drainage detail",
+    conceptImage: "/concepts/foundation-repair-v2.webp",
+    conceptAlt: "AI-generated illustrative image of residential foundation drainage and concrete repair work",
   },
 ];
 
 export const projectPlaceholders = [
-  ["Residential Addition — Project Details Pending", "Additions & ADUs", "Before-and-after set from a residential addition or ADU"],
-  ["Storm Repair — Project Details Pending", "Storm Restoration", "Before-and-after set from a storm or structural repair"],
-  ["Bathroom Remodel — Project Details Pending", "Kitchens & Bathrooms", "Completed kitchen or bathroom remodel"],
-  ["Structural Alteration — Project Details Pending", "Structural Repairs", "Structural framing, bearing-wall or beam project"],
-  ["Deck Repair — Project Details Pending", "Decks & Exterior Work", "Completed deck or stair repair"],
-  ["Foundation Repair — Project Details Pending", "Concrete & Foundation Work", "Concrete, slab or foundation repair"],
+  ["Residential Addition — Project Details Pending", "Additions & ADUs", "Before-and-after set from a residential addition or ADU", "/concepts/addition-structural.webp", "Illustrative 3D render of a framed residential addition"],
+  ["Storm Repair — Project Details Pending", "Storm Restoration", "Before-and-after set from a storm or structural repair", "/concepts/storm-restoration-v2.webp", "AI-generated illustrative image of residential storm restoration in progress"],
+  ["Bathroom Remodel — Project Details Pending", "Kitchens & Bathrooms", "Completed kitchen or bathroom remodel", "/concepts/bathroom-remodel-v2.webp", "AI-generated illustrative image of a completed bathroom remodel"],
+  ["Structural Alteration — Project Details Pending", "Structural Repairs", "Structural framing, bearing-wall or beam project", "/concepts/structural-beam-v2.webp", "AI-generated illustrative image of a residential structural beam installation"],
+  ["Deck Repair — Project Details Pending", "Decks & Exterior Work", "Completed deck or stair repair", "/concepts/deck-concrete.webp", "Illustrative 3D render of a rebuilt cedar deck and exterior stair"],
+  ["Foundation Repair — Project Details Pending", "Concrete & Foundation Work", "Concrete, slab or foundation repair", "/concepts/foundation-repair-v2.webp", "AI-generated illustrative image of foundation and drainage repair work"],
 ] as const;
+
+export type ConceptImage = {
+  src: string;
+  alt: string;
+  uploadLabel: string;
+};
 
 const navItems = [
   ["/", "Home"],
@@ -177,12 +183,15 @@ export function PageFrame({ children }: { children: React.ReactNode }) {
   return <><SiteHeader /><main id="main-content">{children}</main><SiteFooter /></>;
 }
 
-export function PageHero({ eyebrow, title, children, aside }: { eyebrow: string; title: string; children: React.ReactNode; aside?: React.ReactNode }) {
+export function PageHero({ eyebrow, title, children, aside, image }: { eyebrow: string; title: string; children: React.ReactNode; aside?: React.ReactNode; image?: ConceptImage }) {
   return (
     <section className="page-hero blueprint-bg">
       <div className="shell page-hero-grid">
         <div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><div className="lede">{children}</div></div>
-        {aside && <aside className="page-hero-aside">{aside}</aside>}
+        {(image || aside) && <div className="page-hero-side">
+          {image && <ConceptRender src={image.src} alt={image.alt} uploadLabel={image.uploadLabel} hero />}
+          {aside && <aside className="page-hero-aside">{aside}</aside>}
+        </div>}
       </div>
     </section>
   );
@@ -190,16 +199,6 @@ export function PageHero({ eyebrow, title, children, aside }: { eyebrow: string;
 
 export function OwnerTag({ children = "Owner confirmation required" }: { children?: React.ReactNode }) {
   return <span className="status-tag">{children}</span>;
-}
-
-export function PhotoPlaceholder({ label, ratio = "landscape" }: { label: string; ratio?: "landscape" | "portrait" | "square" }) {
-  return (
-    <div className={`photo-placeholder ${ratio}`} role="img" aria-label={`Upload placeholder: ${label}`}>
-      <span>Authentic photo needed</span>
-      <strong>[UPLOAD: {label}]</strong>
-      <small>Do not publish stock imagery as Gregory General Contractors’ work.</small>
-    </div>
-  );
 }
 
 export function ConceptRender({
@@ -229,8 +228,8 @@ export function ConceptRender({
         fetchPriority={hero ? "high" : "auto"}
       />
       <figcaption>
-        <strong>Illustrative 3D render—not a Gregory General Contractors project.</strong>
-        <span>Replace before publication: [UPLOAD: {uploadLabel}]</span>
+        <strong>AI-generated illustrative image—not a Gregory General Contractors project.</strong>
+        <span>Replace for official launch: {uploadLabel}</span>
       </figcaption>
     </figure>
   );

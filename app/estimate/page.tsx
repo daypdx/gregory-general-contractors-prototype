@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Request an Estimate—Draft Form", d
 
 export default function EstimatePage() {
   return <PageFrame>
-    <PageHero eyebrow="Request an estimate" title="Start with the project basics."><p>Share your project type, location, approximate timeline and what you would like to change or repair.</p></PageHero>
+    <PageHero eyebrow="Request an estimate" title="Start with the project basics." image={{src: "/concepts/homeowner-consultation-v2.webp", alt: "AI-generated illustrative image of an in-home renovation planning conversation", uploadLabel: "Authentic Gregory estimate conversation, site walk or planning photograph"}}><p>Share your project type, location, approximate timeline and what you would like to change or repair.</p></PageHero>
     <section className="section"><div className="shell narrow">
       <div className="form-status" role="status"><strong>Draft form—not connected. Owner configuration required.</strong><p>This preview does not send, upload or save contact information. The submit button remains disabled until secure delivery and privacy requirements are configured and tested.</p></div>
       <form aria-describedby="draft-form-note">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PhotoPlaceholder, projectPlaceholders } from "../components";
+import { ConceptRender, projectPlaceholders } from "../components";
 
 const categories = ["All draft projects", ...new Set(projectPlaceholders.map((project) => project[1]))];
 
@@ -28,9 +28,9 @@ export default function ProjectsFilter() {
       </div>
       <p className="editor-note">Draft filter set—publish only categories the owner confirms.</p>
       <div className="project-grid">
-        {visible.map(([title, category, upload]) => (
+        {visible.map(([title, category, upload, image, alt]) => (
           <article className="project-card" key={title}>
-            <PhotoPlaceholder label={upload} />
+            <ConceptRender src={image} alt={alt} uploadLabel={upload} />
             <div className="card-body">
               <span className="status-tag">Project details and owner approval pending</span>
               <p className="kicker">{category}</p>

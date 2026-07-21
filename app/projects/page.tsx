@@ -9,7 +9,7 @@ const caseFields = ["Project title", "General location only", "Year completed", 
 
 export default function ProjectsPage() {
   return <PageFrame>
-    <PageHero eyebrow="Project portfolio draft" title="Real work. Real details. No invented proof."><p>No dependable public portfolio of authentic Gregory General Contractors photography was verified. Every card below is an upload and information placeholder, not a claim of completed work.</p></PageHero>
+    <PageHero eyebrow="Project portfolio draft" title="Real work. Real details. No invented proof." image={{src: "/concepts/structural-beam-v2.webp", alt: "AI-generated illustrative image of a residential structural alteration", uploadLabel: "Wide authentic Gregory project photograph for the portfolio introduction"}}><p>No dependable public portfolio of authentic Gregory General Contractors photography was verified. Every image below is an illustrative concept awaiting an owner-approved project photograph, not a claim of completed work.</p></PageHero>
     <section className="section"><div className="shell"><ProjectsFilter /></div></section>
     <section id="case-study-template" className="section section-alt"><div className="shell split-grid"><div><p className="eyebrow">Reusable case-study template</p><h2>What every published project needs.</h2><p>Permit-holder names, exact residential addresses and unverified research leads must not be published. Any permit information used as a lead needs confirmation from the owner and issuing jurisdiction.</p><Link className="button" href="/estimate">Discuss Your Project</Link></div><ul className="checklist">{caseFields.map((field) => <li key={field}>{field}</li>)}</ul></div></section>
   </PageFrame>;
